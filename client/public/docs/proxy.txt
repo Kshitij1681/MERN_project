@@ -1,0 +1,11 @@
+What is a proxy?
+----------------
+In a computer network, a proxy server is an intermediary between the client and the server. When the client sends a request to the server, a proxy is used to hide the true origin of the request to the resource server.
+
+
+Why do we need a proxy in React?
+--------------------------------
+The answer is to avoid the CORS (Cross-Origin Resource Sharing) issue. For instance, if the client side is connected to the domain localhost:3000 and the request is sent to a server running on a different domain which is localhost:5000. In that case, browsers assume that the request includes something malicious. When the browsers detect that the two domain addresses are not the same, they restrict requests.For this reason, we need a proxy server to handle the restriction of browsers. A proxy server will deal with requests and responses to make cross-origin communication run smoothly.
+
+
+Note: Remember that the proxy setup is intended for development purposes. In a production environment, you would typically configure your backend server and frontend server to properly handle CORS and communicate directly without the need for a proxy.

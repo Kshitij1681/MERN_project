@@ -1,0 +1,15 @@
+Middleware are the functions that have access to the request object , the response object and and the next function in the application's request-response cycle.
+
+The next function in the Express router which, when invoked, executes the middleware succeeding the current middleware or the final response handler.
+
+Here's how middleware works in Express:
+
+1. Definition: Middleware functions are defined using the app.use() or app.METHOD() methods, where METHOD can be any valid HTTP method (e.g., get, post, put, delete). Middleware functions are often defined with the (req, res, next) signature, where req is the request object, res is the response object, and next is a function that should be called to pass control to the next middleware in line.
+
+2. Execution Order: Middleware functions are executed in the order they are defined. They can perform tasks and optionally call next() to pass control to the next middleware. If next() is not called within a middleware function, the chain of middleware execution might get halted.
+
+3. Custom Logic: Middleware functions can perform tasks like authentication, validation, data transformation, logging, error handling, and more. They can modify the req and res objects or even short-circuit the request by sending a response directly.
+
+4. Termination: Middleware functions can also terminate the request-response cycle by sending a response to the client using the res object. This is useful for handling cases where a particular condition is met, and the rest of the middleware chain doesn't need to run.
+
+5. Async Middleware: Middleware functions can be asynchronous. If a middleware function uses asynchronous operations, it should either call next() when those operations are completed or handle errors appropriately.
